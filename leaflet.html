@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+            integrity=""
+            crossorigin=""
+        />
+
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="mapid" style="height: 600px"></div>
+
+        <script
+            src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""
+        ></script>
+
+        <script>
+            var map = L.map("mapid").setView([51.505, -0.09], 13);
+            L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(map);
+            L.marker([51.505, -0.09]).addTo(map);
+            var myicon = L.icon({
+                iconUrl:
+                    "https://cdn-icons-png.flaticon.com/512/7264/7264205.png",
+                iconSize: [80, 90],
+            });
+            L.marker([51.505, -0.09], { icon: myicon })
+                .addTo(map)
+                .bindPopup("Hello!")
+                .openPopup();
+        </script>
+    </body>
+</html>
